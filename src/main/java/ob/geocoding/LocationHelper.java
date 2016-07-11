@@ -1,11 +1,12 @@
 package ob.geocoding;
-
+import java.io.FileInputStream;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.io.InputStreamReader;
 
 public class LocationHelper {
 
@@ -18,7 +19,8 @@ public class LocationHelper {
 			String filePath = "C:\\city.txt";
 			String line = null;
 			cities = new ArrayList<City>();
-			BufferedReader reader = new BufferedReader(new FileReader(filePath));
+			BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(filePath), "UTF-8"));
+
 			while ((line = reader.readLine()) != null) {
 				String[] parts = line.split("\t", 2);
 				if (parts.length >= 2) {
@@ -39,7 +41,7 @@ public class LocationHelper {
 			String filePath="C:\\towns.txt";
 			String line=null;
 			towns=new ArrayList<Town>();
-			BufferedReader reader = new BufferedReader(new FileReader(filePath));
+			BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(filePath), "UTF-8"));
 			while ((line = reader.readLine()) != null) {
 				String[] parts = line.split("/t", 2);
 				if (parts.length >= 2 /*&& ? */) {
@@ -62,7 +64,7 @@ public class LocationHelper {
 			String filePath="C:\\district.txt";
 			String line=null;
 			towns=new ArrayList<Town>();
-			BufferedReader reader = new BufferedReader(new FileReader(filePath));
+			BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(filePath), "UTF-8"));
 			while ((line = reader.readLine()) != null) {
 				String[] parts = line.split("/t", 3);
 				if (parts.length >= 2 /*&& ? */) {
