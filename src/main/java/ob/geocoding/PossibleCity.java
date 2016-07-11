@@ -6,8 +6,6 @@ import java.util.List;
 
 public class PossibleCity {
 
-	// getPossibleCity ?
-
 	public List<City> getPossibleCities(String cityName) throws IOException {
 		List<City> possibleCities = new ArrayList<>();
 		List<City> cities = LocationHelper.getCities();
@@ -17,14 +15,14 @@ public class PossibleCity {
 				possibleCities.add(city);
 			}
 		}
-		
+
 		return possibleCities;
 	}
 
 	public static void main(String[] args) throws IOException {
 		PossibleCity p = new PossibleCity();
 		System.out.println("Application started");
-		List<City> possibleCities = p.getPossibleCities("Adana yolu caddesi Ýstanbul");
+		List<City> possibleCities = p.getPossibleCities("Adana yolu caddesi Ä°stanbul");
 		possibleCities.stream().forEach(System.out::println);
 	}
 
