@@ -6,8 +6,13 @@ public class District {
 	private int townId;
 	private String districtName;
 	
-	public District(){
-		
+
+
+	public District(int districtId, int townId, String districtName) {
+		super();
+		this.districtId = districtId;
+		this.townId = townId;
+		this.districtName = districtName;
 	}
 
 	public int getDistrictId() {
