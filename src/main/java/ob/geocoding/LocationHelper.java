@@ -11,12 +11,11 @@ import java.io.InputStreamReader;
 public class LocationHelper {
 
 	public static List<City> cities;
-
-	public static List<City> getCities() throws IOException {
+    public static List<City> getCities() throws IOException {
 		if (cities != null) {
 			return cities;
 		} else {
-			String filePath = "C:\\city.txt";
+			String filePath = "src/main/resources/city.txt";
 			String line = null;
 			cities = new ArrayList<City>();
 			BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(filePath), "UTF-8"));
@@ -24,7 +23,7 @@ public class LocationHelper {
 			while ((line = reader.readLine()) != null) {
 				String[] parts = line.split("\t", 2);
 				if (parts.length >= 2) {
-					City c = new City(Integer.valueOf(parts[0]), parts[1]);
+					City c = new City(Integer.valueOf(parts[0]), parts[1].trim());
 					cities.add(c);
 				} 
 			}
@@ -32,43 +31,40 @@ public class LocationHelper {
 			return cities;
 		}
 	}
-	public static List<Town> towns;
-	
-	public static List<Town> getTowns() throws IOException{
-		if (towns !=null) {
-			return towns;
+	public static List<County> counties;
+	public static List<County> getTowns() throws IOException{
+		if (counties !=null) {
+			return counties;
 		}else{
-			String filePath="C:\\towns.txt";
+			String filePath="src/main/resources/towns.txt";
 			String line=null;
-			towns=new ArrayList<Town>();
+			counties=new ArrayList<County>();
 			BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(filePath), "UTF-8"));
 			while ((line = reader.readLine()) != null) {
-				String[] parts = line.split("/t", 2);
-				if (parts.length >= 2 /*&& ? */) {
-					Town t = new Town(Integer.valueOf(parts[0]), parts[1]);
-					towns.add(t);
-				} else {
-					System.out.println(line);
-				}
+				String[] parts = line.split("\t", 3);
+				if (parts.length >= 2) {
+					County t = new County(Integer.valueOf(parts[0]), parts[1].trim());
+					counties.add(t);
+				} 
 			}
 			reader.close();
-			return towns;
+			return counties;
 		}
 			
 	}
 	public static List<District> districts;
-	public static List<District> getDistrict() throws IOException{
-		if (towns !=null) {
+	public static List<District> getDistricts() throws IOException{
+		if (districts !=null) {
 			return districts;
 		}else{
-			String filePath="C:\\district.txt";
+			String filePath="src/main/resources/districts.txt";
 			String line=null;
-			towns=new ArrayList<Town>();
+			districts=new ArrayList<District>();
 			BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(filePath), "UTF-8"));
 			while ((line = reader.readLine()) != null) {
-				String[] parts = line.split("/t", 3);
-				if (parts.length >= 2 /*&& ? */) {
-					District d = new District(Integer.valueOf(parts[0]),Integer.valueOf(parts[1]),parts[2]);
+				String[] parts = line.split("\t", 3);
+				if (parts.length >= 2 ) {
+					District d = new District(Integer.valueOf(parts[0].trim()),parts[1].trim(),Integer.valueOf(parts[2].trim()));
 					districts.add(d);
 				} else {
 					System.out.println(line);
