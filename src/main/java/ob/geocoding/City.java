@@ -10,6 +10,11 @@ public class City {
 		this.cityName = cityName;
 	}
 	
+	@Override
+	public String toString() {
+		return String.valueOf(cityId) + " " + cityName;
+	}
+
 	public int getCityId() {
 		return cityId;
 	}

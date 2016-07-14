@@ -3,15 +3,17 @@ package ob.geocoding;
 public class District {
 
 	private int districtId;
-	private int townId;
+	private int countyId;
 	private String districtName;
-	
 
+	public String toString() {
+		return String.valueOf(districtId) + " " + districtName + " " +String.valueOf(countyId);
+	}
 
-	public District(int districtId, int townId, String districtName) {
+	public District(int districtId,String districtName, int countyId) {
 		super();
 		this.districtId = districtId;
-		this.townId = townId;
+		this.countyId = countyId;
 		this.districtName = districtName;
 	}
 
@@ -23,12 +25,12 @@ public class District {
 		this.districtId = districtId;
 	}
 
-	public int getTownId() {
-		return townId;
+	public int getCountyId() {
+		return countyId;
 	}
 
-	public void setTownId(int townId) {
-		this.townId = townId;
+	public void setCountyId(int townId) {
+		this.countyId = townId;
 	}
 
 	public String getDistrictName() {
@@ -39,5 +41,4 @@ public class District {
 		this.districtName = districtName;
 	}
 
-	
 }
