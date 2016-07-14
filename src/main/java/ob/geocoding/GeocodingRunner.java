@@ -25,7 +25,7 @@ public class GeocodingRunner {
 
 	private void run() throws Exception {
 
-		String address = getAddress("Tünel Giriþi Sokak");
+		String address = getAddress("TÃ¼nel GiriÅŸi Sokak");
 		System.out.println("address = " + address);
 
 		String reverseGeoCode = getReverseGeoCode(40.961192, 29.107420);

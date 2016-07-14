@@ -13,7 +13,7 @@ public class LevenshteinTest {
 
 	   @Test
 	   public void testLevenshteinDistance() throws Exception {
-	      int deneme = object.LevenstheinDistance("ilayda", "beril");
+	      int deneme = object.LevenstheinDistance("", "");
 	      assertThat(deneme,is(6));
 	   }
 }
