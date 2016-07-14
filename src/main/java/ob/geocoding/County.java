@@ -5,6 +5,7 @@ public class County {
 	public County(int countyId, String countyName) {
 		super();
 		this.countyId = countyId;
+		this.cityId = (int) Math.floor(countyId / 1000);
 		this.countyName = countyName;
 	}
 	private int countyId;

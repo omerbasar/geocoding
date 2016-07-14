@@ -5,10 +5,8 @@ import com.google.maps.GeocodingApi;
 import com.google.maps.model.GeocodingResult;
 import com.google.maps.model.LatLng;
 
-import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
-
-import org.omg.Messaging.SyncScopeHelper;
 
 public class GeocodingRunner {
 
@@ -25,11 +23,31 @@ public class GeocodingRunner {
 
 	private void run() throws Exception {
 
-		String address = getAddress("Tünel Girişi Sokak");
-		System.out.println("address = " + address);
+		//String address = getAddress("Tünel Girişi Sokak");
+		//System.out.println("address = " + address);
 
-		String reverseGeoCode = getReverseGeoCode(40.961192, 29.107420);
-		System.out.println("reverseGeoCode = " + reverseGeoCode);
+		//String reverseGeoCode = getReverseGeoCode(40.961192, 29.107420);
+		//System.out.println("reverseGeoCode = " + reverseGeoCode);
+
+		List<District> districts = new LocationService().getDistricts("Tunel Yolu Caddesi Bostancı Kadıköy İstanbul");
+		for (District district : districts) {
+			System.out.println("district = " + district);
+		}
+
+		/*
+		LocationService p = new LocationService();
+		System.out.println("Application started");
+		List<City> possibleCities = p.getPossibleCities("Adana yolu caddesi İstanbul");
+		possibleCities.stream().forEach(System.out::println);
+
+		System.out.println("deneme2");
+		List<County> possibleCounties = p.getPossibleCounties("Beşiktaş", 34);
+		possibleCounties.stream().forEach(System.out::println);
+
+		System.out.println("deneme3");
+		List<District> possibleDistricts = p.getPossibleDistricts("Cihannüma", 34001);
+		possibleDistricts.stream().forEach(System.out::println);
+		*/
 	}
 
 	public String getAddress(String address) throws Exception {
